@@ -1,0 +1,76 @@
+<h3>Listing :</h3>
+	<%=form_for @listing do |form|%>
+	<div>
+		<%= form.label :name %>
+		<%= form.text_field :name%>
+	</div>
+	<div>
+		<%= form.label :price %>
+		<%= form.text_field :price%>
+	</div>
+	<div>
+		<%= form.label "House no." %>
+		<%= form.text_field :address%>
+	</div>
+
+	<div>
+		<%= form.label "Images"%>
+		<%= form.file_field :image%>
+	</div>
+
+	<div>
+		<%= form.submit "Get started!"%>
+	</div>
+
+	<div>
+		<%= location.label :street %>
+		<%= location.text_field :street%>
+	</div>
+	<div>
+		<%= location.label :city %>
+		<%= location.text_field :city%>
+	</div>
+	<div>
+		<%= location.label :poscode %>
+		<%= location.text_field :poscode%>
+	</div>
+	<div>
+		<%= location.label :state %>
+		<%= location.text_field :state%>
+	</div>
+	<div>
+		<%= location.label :country %>
+		<%= location.text_field :country%>
+	</div>
+	<div>
+		<%= location.submit "Get started!"%>
+	</div>
+	<div>
+		<%= description.label :type_of_room %>
+		<%= description.text_field :type_of_room%>
+	</div>
+	<div>
+		<%= description.label :num_of_room %>
+		<%= description.text_field :num_of_room%>
+	</div>
+	<div>
+		<%= description.label :num_of_bed %>
+		<%= description.text_field :num_of_bed%>
+	</div>
+	<div>
+		
+		<%= description.label :num_of_bathroom %>
+		<%= description.text_field :num_of_bathroom%>
+	</div>
+	<div>
+		<%= description.label :num_of_guest %>
+		<%= description.text_field :num_of_guest%>
+	</div>
+	<div>
+		<%= description.label :others %>
+		<%= description.text_area :others%>
+	</div>
+	<div>
+		<%= form.submit "List !"%>
+	</div>
+<%end%> 

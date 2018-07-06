@@ -4,12 +4,12 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.timestamps null: false
       t.string :username,null:false
       t.string :email, null: false
-      t.string :picture,default:"Ferrari-Logo.png"
+      t.string :image,default:"Ferrari-Logo.png"
+      t.string :role,default:"user"
       t.string :encrypted_password, limit: 128, null: false
       t.string :confirmation_token, limit: 128
       t.string :remember_token, limit: 128, null: false
     end
-
     add_index :users, :email
     add_index :users, :remember_token
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_06_013335) do
+ActiveRecord::Schema.define(version: 2018_07_06_132139) do
 
   create_table "authentications", force: :cascade do |t|
     t.string "uid"
@@ -22,12 +22,38 @@ ActiveRecord::Schema.define(version: 2018_07_06_013335) do
     t.index ["user_id"], name: "index_authentications_on_user_id"
   end
 
+  create_table "listings", force: :cascade do |t|
+    t.string "name"
+    t.integer "num_of_beds"
+    t.float "price_per_night"
+    t.integer "num_of_bath"
+    t.integer "num_of_rooms"
+    t.string "wifi"
+    t.string "kitchen"
+    t.string "washer"
+    t.string "dryer"
+    t.string "iron"
+    t.string "hair_dryer"
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.string "resident"
+    t.string "poscode"
+    t.string "street"
+    t.string "house_number"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username", null: false
     t.string "email", null: false
-    t.string "picture", default: "Ferrari-Logo.png"
+    t.string "image", default: "Ferrari-Logo.png"
+    t.string "role", default: "user"
     t.string "encrypted_password", limit: 128, null: false
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false

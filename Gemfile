@@ -36,6 +36,11 @@ gem 'omniauth-google-oauth2'
 #Use Figaro to protext sensitive key
 gem 'figaro'
 
+#Use gem carrierwave to upload image
+gem 'carrierwave'
+
+#Use gem jqeury for ajax
+gem 'jquery-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

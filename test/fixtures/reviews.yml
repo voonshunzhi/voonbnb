@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment_by_host: MyText
+  comment_by_guest: MyText
+  star_by_host: 1.5
+  star_by_guest: 1.5
+
+two:
+  comment_by_host: MyText
+  comment_by_guest: MyText
+  star_by_host: 1.5
+  star_by_guest: 1.5

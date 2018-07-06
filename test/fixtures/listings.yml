@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  num_of_beds: 1
+  price_per_night: 1.5
+  num_of_bath: 1
+  num_of_rooms: 1
+  wifi: MyString
+  kitchen: MyString
+  washer: MyString
+  dryer: 
+  iron: MyString
+  hair_dryer: MyString
+  country: MyString
+  state: MyString
+  city: MyString
+  resident: MyString
+  poscode: MyString
+  street: MyString
+  house_number: MyString
+
+two:
+  name: MyString
+  num_of_beds: 1
+  price_per_night: 1.5
+  num_of_bath: 1
+  num_of_rooms: 1
+  wifi: MyString
+  kitchen: MyString
+  washer: MyString
+  dryer: 
+  iron: MyString
+  hair_dryer: MyString
+  country: MyString
+  state: MyString
+  city: MyString
+  resident: MyString
+  poscode: MyString
+  street: MyString
+  house_number: MyString
