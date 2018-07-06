@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_06_132139) do
+ActiveRecord::Schema.define(version: 2018_07_06_152030) do
 
   create_table "authentications", force: :cascade do |t|
     t.string "uid"
@@ -28,12 +28,12 @@ ActiveRecord::Schema.define(version: 2018_07_06_132139) do
     t.float "price_per_night"
     t.integer "num_of_bath"
     t.integer "num_of_rooms"
-    t.string "wifi"
-    t.string "kitchen"
-    t.string "washer"
-    t.string "dryer"
-    t.string "iron"
-    t.string "hair_dryer"
+    t.string "wifi", default: "no"
+    t.string "kitchen", default: "no"
+    t.string "washer", default: "no"
+    t.string "dryer", default: "no"
+    t.string "iron", default: "no"
+    t.string "hair_dryer", default: "no"
     t.string "country"
     t.string "state"
     t.string "city"
@@ -41,10 +41,20 @@ ActiveRecord::Schema.define(version: 2018_07_06_132139) do
     t.string "poscode"
     t.string "street"
     t.string "house_number"
+    t.string "status", default: "pending"
     t.integer "user_id"
+    t.integer "sort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
+    t.index ["sort_id"], name: "index_listings_on_sort_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "sorts", force: :cascade do |t|
+    t.string "sort"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

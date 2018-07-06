@@ -1,76 +1,72 @@
 <h3>Listing :</h3>
 	<%=form_for @listing do |form|%>
+	<%= hidden_field :user_id,current_user.id%>
 	<div>
-		<%= form.label :name %>
+		<%= form.label "Name of Airbnb :" %>
 		<%= form.text_field :name%>
 	</div>
 	<div>
-		<%= form.label :price %>
-		<%= form.text_field :price%>
+		<%= form.label "Price per night : " %>
+		<%= form.text_field :price_per_night%>
 	</div>
 	<div>
-		<%= form.label "House no." %>
-		<%= form.text_field :address%>
+		<%= form.label "Number of Beds :" %>
+		<%= form.text_field :num_of_beds%>
+	</div>
+	<div>
+		<%= form.label "Number of Bathroom :" %>
+		<%= form.text_field :num_of_bath%>
+	</div>
+	<div>
+		<%= form.label "Number of Room :" %>
+		<%= form.text_field :num_of_rooms%>
+	</div>
+	<div>
+		<%= form.label "Amenities Available : "%>
+		<%= check_box_tag :wifi,"yes"%> Wifi
+		<%= check_box_tag :kitchen,"yes"%> Kitchen
+		<%= check_box_tag :washer,"yes"%>Washer
+		<%= check_box_tag :dryer,"yes"%>Dryer
+		<%= check_box_tag :iron,"yes"%>Iron
+		<%= check_box_tag :hair_dryer,"yes"%>Hair Dryer
+	</div>
+	<div>
+		<%= form.label "Type of Airbnb:"%>
+		<%= form.select :sort_id, Sort.all.collect {|sort| [sort.sort,sort.id]}%>
+	</div>
+	<div>
+		<%= form.label "Image of your Airbnb :"%>
+		<%= form.file_field :image, multiple: true %>
+	</div>
+	<div>
+		<%= form.label "House number :"%>
+		<%= form.text_field :house_number,placeholder:"428....."%>
+	</div>
+	<div>
+		<%= form.label "Street :"%>
+		<%= form.text_field :street,placeholder:"Jalan Glomac...."%>
+	</div>
+	<div>
+		<%= form.label "Resident :"%>
+		<%= form.text_field :resident,placeholder:"Bandar Subang...."%>
+	</div>
+	<div>
+		<%= form.label "City :"%>
+		<%= form.text_field :city,placeholder:"Glomac Daman......"%>
+	</div>
+	<div>
+		<%= form.label "Poscode :"%>
+		<%= form.text_field :poscode,placeholder:"0300523605......"%>
+	</div>
+	<div>
+		<%= form.label "State :"%>
+		<%= form.text_field :state,placeholder:"Florida...."%>
+	<div>
+	<div>
+		<%= form.label "Country :"%>
+		<%= form.text_field :country,placeholder:"Singapore....."%>
 	</div>
 
-	<div>
-		<%= form.label "Images"%>
-		<%= form.file_field :image%>
-	</div>
-
-	<div>
-		<%= form.submit "Get started!"%>
-	</div>
-
-	<div>
-		<%= location.label :street %>
-		<%= location.text_field :street%>
-	</div>
-	<div>
-		<%= location.label :city %>
-		<%= location.text_field :city%>
-	</div>
-	<div>
-		<%= location.label :poscode %>
-		<%= location.text_field :poscode%>
-	</div>
-	<div>
-		<%= location.label :state %>
-		<%= location.text_field :state%>
-	</div>
-	<div>
-		<%= location.label :country %>
-		<%= location.text_field :country%>
-	</div>
-	<div>
-		<%= location.submit "Get started!"%>
-	</div>
-	<div>
-		<%= description.label :type_of_room %>
-		<%= description.text_field :type_of_room%>
-	</div>
-	<div>
-		<%= description.label :num_of_room %>
-		<%= description.text_field :num_of_room%>
-	</div>
-	<div>
-		<%= description.label :num_of_bed %>
-		<%= description.text_field :num_of_bed%>
-	</div>
-	<div>
-		
-		<%= description.label :num_of_bathroom %>
-		<%= description.text_field :num_of_bathroom%>
-	</div>
-	<div>
-		<%= description.label :num_of_guest %>
-		<%= description.text_field :num_of_guest%>
-	</div>
-	<div>
-		<%= description.label :others %>
-		<%= description.text_area :others%>
-	</div>
-	<div>
 		<%= form.submit "List !"%>
 	</div>
 <%end%> 
