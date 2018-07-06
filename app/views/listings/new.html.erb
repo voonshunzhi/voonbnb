@@ -1,6 +1,7 @@
 <h3>Listing :</h3>
 	<%=form_for @listing do |form|%>
-	<%= hidden_field :user_id,current_user.id%>
+
+	<%= form.hidden_field :user_id,:value=>current_user.id%>
 	<div>
 		<%= form.label "Name of Airbnb :" %>
 		<%= form.text_field :name%>
