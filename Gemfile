@@ -40,6 +40,8 @@ gem 'figaro'
 
 #Use gem carrierwave to upload image
 gem 'carrierwave'
+#Autoload the server
+gem 'shotgun'
 
 #Use gem jqeury for ajax
 # Use ActiveStorage variant

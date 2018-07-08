@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
-	before_action :require_login, only: [:new,:all]
-	def index
-		@listings = Listing.where(status:"approved")
+	#Things to check before going into action
+	before_action :require_login, only: [:profile]
+
+	def profile
+		@user = User.find(current_user.id)
 	end
+
 end

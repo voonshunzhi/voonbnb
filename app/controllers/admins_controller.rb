@@ -4,15 +4,15 @@ class AdminsController < ApplicationController
 	def index
 		@listings = Listing.all
 	end
-	def approve
+	def update
 		@listing = Listing.find(params[:id])
 		@listing.update(status:"approved")
-		redirect_to admin_index_path
+		redirect_to admins_path
 	end
 	def destroy
 		@listing = Listing.find(params[:id])
 		@listing.delete
-		redirect_to admin_index_path
+		redirect_to admins_path
 	end
 
 	private

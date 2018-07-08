@@ -24,6 +24,7 @@
 		<th scope="col">Image</th>
 		<th scope="col">Status</th>
 		<th scope="col">Approve</th>
+		<th scope="col">Delete</th>
 	</tr>
 	</thead>
 
@@ -33,7 +34,7 @@
 		<tr>
 			<td><%= listing.user_id%></td>
 			<td><%= listing.name%></td>
-			<td><%= listing.price_per_night%></td>
+			<td><%= listing.price_per_night.to_s[0..-3]%></td>
 			<td><%= listing.num_of_rooms%></td>
 			<td><%= listing.num_of_beds%></td>
 			<td><%= listing.num_of_bath%></td>
@@ -51,10 +52,13 @@
 			<td><%= listing.state%></td>
 			<td><%= listing.country%></td>
 			<td><%= listing.sort.sort%></td>
-			<td><%= "Image"%></td>
+			<td><%= image_tag listing.image[0].url,class:"img-sm"%></td>
 			<td><%= listing.status%></td>
-			<td><%= link_to "Approve",admin_approve_path(listing)%></td>
-			<td><%= link_to "Delete",admin_path(:id),:method => 'delete',data: {confirm: 'Are you sure?'}%></td>
+			<td><%= link_to "Approve",admin_path(listing),method: :put%></td>
+			<td><%= link_to 'Delete', 
+             admin_path(listing), 
+                         method: :delete, 
+                         data: { confirm: 'Are you sure?' } %> </td>
 		</tr>
 	<%end%>
 	

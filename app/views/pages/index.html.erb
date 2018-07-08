@@ -1,7 +1,0 @@
-<%@listings.each do |listing|%>
-	<p><%= image_tag(listing.image.first.to_s,:class=>"small-image") %></p>
-	<p><%= listing.sort.sort + " | " + listing.city%></p>
-	<p><%= listing.name%></p>
-	<p><%= "RM " + listing.price_per_night + " per night"%></p>
-
-<%end%>

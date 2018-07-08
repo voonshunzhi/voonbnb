@@ -1,7 +1,8 @@
 class ListingsController < ApplicationController
 	before_action :require_login
+
 	def index
-		@listings = Listing.all
+		@listings = current_user.listings
 	end
 	def new
 		@listing = Listing.new

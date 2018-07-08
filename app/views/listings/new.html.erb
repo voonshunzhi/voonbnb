@@ -24,12 +24,12 @@
 	</div>
 	<div>
 		<%= form.label "Amenities Available : "%>
-		<%= check_box_tag :wifi,"yes"%> Wifi
-		<%= check_box_tag :kitchen,"yes"%> Kitchen
-		<%= check_box_tag :washer,"yes"%>Washer
-		<%= check_box_tag :dryer,"yes"%>Dryer
-		<%= check_box_tag :iron,"yes"%>Iron
-		<%= check_box_tag :hair_dryer,"yes"%>Hair Dryer
+		<%= form.check_box :wifi,{},"yes","no"%> Wifi
+		<%= form.check_box :kitchen,{},"yes","no"%> Kitchen
+		<%= form.check_box :washer,{},"yes","no"%>Washer
+		<%= form.check_box :dryer,{},"yes","no"%>Dryer
+		<%= form.check_box :iron,{},"yes","no"%>Iron
+		<%= form.check_box :hair_dryer,{},"yes","no"%>Hair Dryer
 	</div>
 	<div>
 		<%= form.label "Type of Airbnb:"%>

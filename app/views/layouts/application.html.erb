@@ -3,13 +3,21 @@
 <head>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
+  <%= stylesheet_link_tag "application",media:"all"%>
 </head>
 <body>
   <div id="header">
     <%if signed_in?%>
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
       <%= "Username : " + current_user.username%>
+      <% if current_user.role != "admin"%>
       <%= link_to "Become A Host", new_listing_path%>
+      <%= link_to "View My Listing",listings_path%>
+      <%= link_to "Profile", profile_page_path(current_user)%>
+      <%else%>
+      <%= link_to "Admin Panel",admins_path%>
+      <%= link_to "My Site", root_path%>
+      <%end%>
     <% else -%>
       <%= link_to t(".sign_in"), sign_in_path %>
       <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
@@ -21,6 +29,8 @@
       <div id="flash_<%= key %>"><%=h value %></div>
     <% end %>
   </div>
-  <%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
