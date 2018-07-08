@@ -15,6 +15,10 @@ class ListingsController < ApplicationController
 	def edit
 		@listing = Listing.find(params[:id])
 	end
+
+	def destroy
+
+	end
 	private
 	def listing_param
 		params.require(:listing).permit(:name, 

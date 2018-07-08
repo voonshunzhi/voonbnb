@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
   resources :listings
   resources :admins,only: [:index,:destroy,:update]
-  resources :airbnb,only: [:index,:show]
+  resources :airbnbs,only: [:index,:show]
   get     "profile"                  => "pages#profile", as: :profile_page
   get     "/sign_in"                  => "clearance/sessions#new", as: "sign_in"
   delete  "/sign_out"                 => "clearance/sessions#destroy", as: "sign_out"

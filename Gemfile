@@ -42,7 +42,8 @@ gem 'figaro'
 gem 'carrierwave'
 #Autoload the server
 gem 'shotgun'
-
+#For pagination
+gem 'will_paginate'
 #Use gem jqeury for ajax
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

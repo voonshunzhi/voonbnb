@@ -1,12 +1,14 @@
-<div class="card-deck">
+<h3>Homes around the world </h3>
+<div class="row">
 	<%@listings.each do |listing|%>
-		<div class="card">
+		<div class="card col-lg-3 col-md-6 col-xs-12">
 		  <%= image_tag(listing.image[0].url,class:"card-img-top img-md",alt:listing.name) %>
 		  <div class="card-body">
-			<p class="card-text pre-header-text"><%= listing.sort.sort + " | " + listing.city%></p>
-			<p class="card-text header-text"><%= listing.name%></p>
+			<p class="card-text pre-header-text"><%= listing.sort.sort + " . " + listing.city%></p>
+			<p class="card-text header-text"><%= link_to listing.name,airbnb_path(listing)%></p>
 			<p class="card-text price-text"><%= "RM " + listing.price_per_night.to_s[0..-3] + " per night"%></p>
 		  </div>
 		</div>
 	<%end%>
 </div>
+<%= will_paginate @listings,class:"apple_pagination" %>
