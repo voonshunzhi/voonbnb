@@ -6,32 +6,60 @@
   <%= stylesheet_link_tag "application",media:"all"%>
 </head>
 <body>
-  <div id="header">
-    <%if signed_in?%>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-      <%= "Username : " + current_user.username%>
-      <% if current_user.role != "admin"%>
-      <%= link_to "Become A Host", new_listing_path%>
-      <%= link_to "View My Listing",listings_path%>
-      <%= link_to "Profile", profile_page_path(current_user)%>
-      <%else%>
-      <%= link_to "Admin Panel",admins_path%>
-      <%= link_to "My Site", root_path%>
-      <%end%>
-    <% else -%>
-      <%= link_to t(".sign_in"), sign_in_path %>
-      <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
-    <%end%>
-  </div>
+<div id="header" class="padding-bottom">
 
-  <div id="flash">
-    <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
-    <% end %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "Airbnb", root_path,class:"navbar-brand"%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      <%if signed_in?%>
+      <% if current_user.role != "admin"%>
+          <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item"><%= link_to "Become A Host", new_listing_path,class:"nav-link"%></li>
+          <li class="nav-item"><%= link_to "View My Listing",listings_path,class:"nav-link"%></li>
+          <li class="nav-item"><%= link_to "Profile", profile_page_path,class:"nav-link"%></li>
+        
+          <li>
+            <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+          </li>
+        </ul>
+        
+      <%else%>
+        <li class="nav-item"><%= link_to "Admin Panel",admins_path,class:"nav-link"%></li>
+        <li class="nav-item"><%= link_to "My Site", root_path,class:"nav-link"%></li>
+      <%end%>
+  <% else -%>
+  <li class="nav-item"><%= link_to t(".sign_in"), sign_in_path,class:"nav-link" %></li>
+  <li class="nav-item"><%= link_to "Sign in with Google", "/auth/google_oauth2",class:"nav-link" %></li>
+  <%end%>
+
   </div>
+</nav>
+  
+</div>
+
+<div id="flash">
+  <% flash.each do |key, value| -%>
+    <div id="flash_<%= key %>" class="alert alert-<%=key%> alert-dismissible fade show"><%=value %></div>
+  <% end %>
+</div>
+<% if (controller.controller_name == "airbnbs" && controller.action_name == "show") || (controller.controller_name == "admins" || controller.controller_name == "listings")%>
+    <%= yield %>
+<%else%>
   <div class="container">
     <%= yield %>
   </div>
+<%end%>
+  
   <%= debug(params) if Rails.env.development?%>
 </body>
 </html>

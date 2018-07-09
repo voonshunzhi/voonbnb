@@ -1,0 +1,13 @@
+<h3>The Airbnbs by <%= @airbnbs[0].user.username%> : </h3>
+<div class="row">
+	<%@airbnbs.each do |airbnb|%>
+		<div class="card col-lg-3 col-md-6 col-xs-12">
+		  <%= image_tag(airbnb.image[0].url,class:"card-img-top img-md",alt:airbnb.name) %>
+		  <div class="card-body">
+			<p class="card-text pre-header-text"><%= airbnb.sort.sort + " . " + airbnb.city%></p>
+			<p class="card-text header-text"><%= link_to airbnb.name,airbnb_path(airbnb)%></p>
+			<p class="card-text price-text"><%= "RM " + airbnb.price_per_night.to_s[0..-3] + " per night"%></p>
+		  </div>
+		</div>
+	<%end%>
+</div>

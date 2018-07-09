@@ -1,0 +1,16 @@
+<div align="center">
+	<div class="card border-dark mb-3" style="max-width: 18rem;">
+	  <h3><%= @user.username%>'s profile</h3>
+	  <div class="card-body text-dark">
+	    <p class="card-text">
+	    	<div align="center"><%= image_tag @user.image_url,class:"img-profile"%></div>
+			<div class="padding-top">Email : <%=@user.email%></div>
+			<%if own?%>
+				<div class="padding-top">Number of listing : <%= link_to num_of_listing,listings_path%></div>
+			<%else%>
+				<div class="padding-top">Number of listing : <%= link_to num_of_listing,user_airbnbs_path%></div>
+			<%end%>
+	    </p>
+	  </div>
+	</div>
+</div>

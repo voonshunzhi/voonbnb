@@ -1,1 +1,35 @@
-<h1><%=@airbnb.name%></h1>
+<div class="row">
+		<div class="col-xs-12 col-lg-12 "><%= image_tag @airbnb.image[0].url,class:"img-lg center-cropped stretch-full-screen"%></div>
+</div>
+<div class="container">
+	<div class="row padding-top">
+		<div class="well col-xs-12 col-lg-8">
+			<div class="row">
+				<div class="col-xs-8 col-lg-8">
+					<div><%=@airbnb.sort.sort%></div>
+					<h2><%=@airbnb.name%></h2>
+					<div><%=@airbnb.city%></div>
+				</div>
+				<div class="col-xs-4 col-lg-4">
+						<div><%= image_tag(@airbnb.user.image_url,class:"img-sm")%></div>
+					<label><%= link_to host_name,user_path(@airbnb.user)%></label>
+				</div>
+			</div>
+			<div class="padding-top"><%=@airbnb.num_of_rooms%> rooms <%=@airbnb.num_of_beds%> beds <%=@airbnb.num_of_bath%> bathroom</div>
+		</div>
+		<div class="well col-lg-4 col-xs-12">
+			<div><strong>RM <%=@airbnb.price_per_night.to_s[0..-3]%></strong><small> per night</small></div>
+			<div>Check-in date</div>
+			<input type="date" name="check-in-date">
+			<div>Checkout-out date</div>
+			<input type="date" name="check-out-date">
+			<div><button class="btn btn-primary">Book!</button></div>
+		</div>
+		<div class="well col-lg-12 col-xs-12">
+			<div>Amenities available :</div>
+			<%@airbnb.amenities.each do |amenity|%>
+				<div><%=amenity%></div>
+			<%end%>
+		</div>
+	</div>
+</div>

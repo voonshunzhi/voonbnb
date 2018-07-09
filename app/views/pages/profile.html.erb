@@ -1,0 +1,4 @@
+<h3><%= @user.username%>'s profile</h3>
+<div>Email : <%@user.username%></div>
+<div>Number of listing : <%= pluralize(@user.listings.count,"listing")%></div>
+<div><%= link_to "Edit profile",edit_user_path(@user)%></div>

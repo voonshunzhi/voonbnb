@@ -1,36 +1,55 @@
-.card-text{
-	margin-bottom:0;
-}
 @import "bootstrap";
+.img-sm{
+  width:100px;
+  height:80px;
+}
+.card-text{
+  margin-bottom:0;
+}
+.img-profile{
+  width:250px;
+  height:200px;
+}
 .card{
-	border:0;
+  border:0;
 }
 .card-body{
-	padding-top:5px;
-	padding-left:0;
+  padding-top:5px;
+  padding-left:0;
+}
+.img-md{
+  width:100%;
+  height:160px;
+}
+.img-lg{
+  height:500px;
+}
+.stretch-full-screen{
+  width:100vw;
+}
+.stretch-full-width{
+  width:100%;
+}
+.padding-top{
+  padding-top:20px;
+}
+.rounded-corner{
+  border-radius:5px;
+}
+.pre-header-text{
+  font-size:0.8em;
+  font-weight:100;
+}
+.header-text{
+  font-weight:bold;
+  letter-spacing:0.5px;
+}
+.price-text{
+  font-size:0.8em;
+  font-weight:200;
 }
 .pagination{
 	justify-content:center;
-}
-.img-sm{
-	width:100px;
-	height:80px;
-}
-.img-md{
-	width:100%;
-	height:160px;
-}
-.pre-header-text{
-	font-size:0.8em;
-	font-weight:100;
-}
-.header-text{
-	font-weight:bold;
-	letter-spacing:0.5px;
-}
-.price-text{
-	font-size:0.8em;
-	font-weight:200;
 }
 .apple_pagination {
   text-align: center;
@@ -58,3 +77,24 @@
     color: black; }
 .apple_pagination a:hover, .apple_pagination a:focus {
   text-decoration: underline; }
+.center-cropped {
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 400px;
+  width: 100%;
+}
+.cropped{
+  height:300px;
+  overflow:hidden;
+}
+.padding-bottom{
+  padding-bottom:30px;
+}
+table { 
+    table-layout:fixed;
+}
+td { 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    word-wrap: break-word;
+}

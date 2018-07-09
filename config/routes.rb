@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   resources :listings
   resources :admins,only: [:index,:destroy,:update]
   resources :airbnbs,only: [:index,:show]
-  get     "profile"                  => "pages#profile", as: :profile_page
+  resources :users,only: [:edit,:update,:show]
+
+  get     "airbnbs/user/:id"         => "airbnbs#user_airbnbs",as: :user_airbnbs
+  get     "profile"                  => "users#profile", as: :profile_page
   get     "/sign_in"                  => "clearance/sessions#new", as: "sign_in"
   delete  "/sign_out"                 => "clearance/sessions#destroy", as: "sign_out"
   get     "/sign_up"                  => "clearance/users#new", as: "sign_up"

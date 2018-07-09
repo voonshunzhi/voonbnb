@@ -1,0 +1,73 @@
+<h3><%=@listing.new_record? ? "Create new lisitng :" : "Edit my listing :"%></h3>
+	<%=form_for @listing do |form|%>
+	<div>
+		<%= form.label "Name of Airbnb :" %>
+		<%= form.text_field :name,autofocus:true%>
+	</div>
+	<div>
+		<%= form.label "Price per night : " %>
+		<%= form.text_field :price_per_night%>
+	</div>
+	<div>
+		<%= form.label "Number of Beds :" %>
+		<%= form.text_field :num_of_beds%>
+	</div>
+	<div>
+		<%= form.label "Number of Bathroom :" %>
+		<%= form.text_field :num_of_bath%>
+	</div>
+	<div>
+		<%= form.label "Number of Room :" %>
+		<%= form.text_field :num_of_rooms%>
+	</div>
+	<div>
+		<%= form.label "Amenities Available : "%>
+		<%= form.check_box :amenities,{multiple: true},"wifi",false%> Wifi
+		<%= form.check_box :amenities,{multiple: true},"kitchen",false%> Kitchen
+		<%= form.check_box :amenities,{multiple: true},"washer",false%>Washer
+		<%= form.check_box :amenities,{multiple: true},"dryer",false%>Dryer
+		<%= form.check_box :amenities,{multiple: true},"iron",false%>Iron
+		<%= form.check_box :amenities,{multiple: true},"hair_dryer",false%>Hair Dryer
+		]<%= form.check_box :amenities,{multiple: true},"Air-conditoning",false%>Air-conditioning
+	</div>
+	<div>
+		<%= form.label "Type of Airbnb:"%>
+		<%= form.select :sort_id, Sort.all.collect {|sort| [sort.sort,sort.id]}%>
+	</div>
+	 
+	<div>
+		<%= form.label "Image of your Airbnb :"%>
+		<%= form.file_field :image, multiple: true %>
+	</div>
+	<div>
+		<%= form.label "House number :"%>
+		<%= form.text_field :house_number,placeholder:"428....."%>
+	</div>
+	<div>
+		<%= form.label "Street :"%>
+		<%= form.text_field :street,placeholder:"Jalan Glomac...."%>
+	</div>
+	<div>
+		<%= form.label "Resident :"%>
+		<%= form.text_field :resident,placeholder:"Bandar Subang...."%>
+	</div>
+	<div>
+		<%= form.label "City :"%>
+		<%= form.text_field :city,placeholder:"Glomac Daman......"%>
+	</div>
+	<div>
+		<%= form.label "Poscode :"%>
+		<%= form.text_field :poscode,placeholder:"0300523605......"%>
+	</div>
+	<div>
+		<%= form.label "State :"%>
+		<%= form.text_field :state,placeholder:"Florida...."%>
+	<div>
+	<div>
+		<%= form.label "Country :"%>
+		<%= form.text_field :country,placeholder:"Singapore....."%>
+	</div>
+
+		<%= form.submit(@listing.new_record? ? "List !" : "Update")%>
+	</div>
+<%end%> 

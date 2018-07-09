@@ -1,0 +1,16 @@
+<%=form_for @user do |form|%>
+	<div>
+		<%= form.label "Username :" %>
+		<%= form.text_field :username,autofocus:true%>
+	</div>
+	<div>
+		<%= form.label "Email : " %>
+		<%= form.text_field :email%>
+	</div>
+	<div>
+		<%= form.label "Profile Image : " %>
+		<%= form.file_field :image %>
+	</div>
+
+	<%= form.submit "Update Profile"%>
+<%end%> 
