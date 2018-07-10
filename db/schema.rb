@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_10_075831) do
+ActiveRecord::Schema.define(version: 2018_07_10_152540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,20 +31,26 @@ ActiveRecord::Schema.define(version: 2018_07_10_075831) do
     t.float "price_per_night"
     t.integer "num_of_bath"
     t.integer "num_of_rooms"
+    t.string "wifi", default: "no"
+    t.string "kitchen", default: "no"
+    t.string "washer", default: "no"
+    t.string "dryer", default: "no"
+    t.string "iron", default: "no"
+    t.string "hair_dryer", default: "no"
     t.string "country"
     t.string "state"
     t.string "city"
     t.string "resident"
     t.string "poscode"
     t.string "street"
+    t.json "image"
     t.string "house_number"
     t.string "status", default: "pending"
-    t.integer "user_id"
-    t.integer "sort_id"
+    t.bigint "user_id"
+    t.bigint "sort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
-    t.string "amenities"
+    t.json "amenities"
     t.index ["sort_id"], name: "index_listings_on_sort_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
   end

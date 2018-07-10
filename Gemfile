@@ -40,9 +40,8 @@ gem 'carrierwave'
 gem 'shotgun'
 #For pagination
 gem 'will_paginate'
-gem 'carrierwave-aws'
 gem 'mini_magick'
-gem 'aws-sdk-rails'
+gem 'fog-aws'
 #Use gem jqeury for ajax
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

@@ -10,4 +10,8 @@ module AirbnbsHelper
 		end
 		@range
 	end
+
+	def display_amenity_icon(icon)
+		image_tag "#{icon}.png"
+	end
 end

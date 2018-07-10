@@ -11,7 +11,7 @@
 					<div><%=@airbnb.city%></div>
 				</div>
 				<div class="col-xs-4 col-lg-4">
-						<div><%= image_tag(@airbnb.user.image_url,class:"img-sm")%></div>
+						<div><%= image_tag(@airbnb.user.image_url,class:"img-sm img-circle")%></div>
 					<label><%= link_to host_name,user_path(@airbnb.user)%></label>
 				</div>
 			</div>
@@ -41,7 +41,7 @@
 		<div class="well col-lg-12 col-xs-12">
 			<div>Amenities available :</div>
 			<%@airbnb.amenities.each do |amenity|%>
-				<div><%=amenity%></div>
+				<div><%= display_amenity_icon(amenity)%> <%=amenity.titlecase%></div>
 			<%end%>
 		</div>
 	</div>

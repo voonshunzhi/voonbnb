@@ -9,7 +9,7 @@
 <div id="header" class="padding-bottom">
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to "Airbnb", root_path,class:"navbar-brand"%>
+  <%= link_to "Airbnb", root_path,class:"navbar-brand bolded"%>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -52,7 +52,7 @@
     <div id="flash_<%= key %>" class="alert alert-<%=key%> alert-dismissible fade show"><%=value %></div>
   <% end %>
 </div>
-<% if (controller.controller_name == "airbnbs" && controller.action_name == "show") || (controller.controller_name == "admins" || controller.controller_name == "listings")%>
+<% if (controller.controller_name == "airbnbs" && controller.action_name == "show") || controller.controller_name == "admins"|| controller.controller_name == "listings"%>
     <%= yield %>
 <%else%>
   <div class="container">
