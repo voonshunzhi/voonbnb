@@ -7,10 +7,7 @@ class AirbnbsController < ApplicationController
 		@airbnb = Listing.find(params[:id])
 		@reservation = Reservation.new
 		@disabled_dates = Reservation.where(listing_id:params[:id])
-		@range = []
-		@disabled_dates.each do |reserve|
-			@range.concat (reserve.check_in_date.to_date..reserve.check_out_date.to_date).map{ |date| date.strftime("%Y-%m-%d") }
-		end
+		range_of_occupied_dates
 	end
 
 	def user_airbnbs

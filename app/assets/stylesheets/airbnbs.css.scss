@@ -1,0 +1,57 @@
+.pre-header-text{
+  font-size:0.8em;
+  font-weight:100;
+}
+.header-text{
+  font-weight:bold;
+  letter-spacing:0.5px;
+}
+.price-text{
+  font-size:0.8em;
+  font-weight:200;
+}
+.card-text{
+  margin-bottom:0;
+}
+.card{
+  border:0;
+}
+.card-body{
+  padding-top:5px;
+  padding-left:0;
+}
+.center-cropped {
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: 400px;
+  width: 100%;
+}
+.pagination{
+	justify-content:center;
+}
+.apple_pagination {
+  text-align: center;
+  padding: 1em;
+  cursor: default; }
+
+ .apple_pagination a, .apple_pagination span {
+    padding: 0.2em 0.3em; }
+ .apple_pagination .disabled {
+    color: #aaaaaa; }
+ .apple_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: #bebebe;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+ .apple_pagination a {
+    text-decoration: none;
+    color: black; }
+.apple_pagination a:hover, .apple_pagination a:focus {
+  text-decoration: underline; }

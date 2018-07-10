@@ -15,7 +15,7 @@
 					<label><%= link_to host_name,user_path(@airbnb.user)%></label>
 				</div>
 			</div>
-			<div class="padding-top"> <%= image_tag 'bedroom.png' %>rooms <%=@airbnb.num_of_rooms%><%= image_tag 'bed.png' %> beds <%=@airbnb.num_of_beds%>  <%= image_tag 'bathtub.png'%>bathroom <%=@airbnb.num_of_bath%></div>
+			<div class="padding-top"> <%= image_tag 'bedroom.png' %> rooms <%=@airbnb.num_of_rooms%> <%= image_tag 'bed.png' %> beds <%=@airbnb.num_of_beds%>  <%= image_tag 'bathtub.png'%> bathroom <%=@airbnb.num_of_bath%></div>
 		</div>
 		<div class="well col-lg-4 col-xs-12">
 			<div><strong>RM <%=@airbnb.price_per_night.to_s[0..-3]%></strong><small> per night</small></div>
