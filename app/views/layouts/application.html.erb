@@ -17,29 +17,29 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
       <%if signed_in?%>
-      <% if current_user.role != "admin"%>
+      
           <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
       </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item"><%= link_to "Become A Host", new_listing_path,class:"nav-link"%></li>
-          <li class="nav-item"><%= link_to "View My Listing",listings_path,class:"nav-link"%></li>
-          <li class="nav-item"><%= link_to "Profile", profile_page_path,class:"nav-link"%></li>
+          <% if current_user.role != "admin"%>
+            <li class="nav-item"><%= link_to "Become A Host", new_listing_path,class:"nav-link"%></li>
+            <li class="nav-item"><%= link_to "View My Listing",listings_path,class:"nav-link"%></li>
+            <li class="nav-item"><%= link_to "Profile", profile_page_path,class:"nav-link"%></li>
+          <%else%>
+            <li class="nav-item"><%= link_to "Admin Panel",admins_path,class:"nav-link"%></li>
+            <li class="nav-item"><%= link_to "My Site", root_path,class:"nav-link"%></li>
+        <%end%>
+            <li>
+              <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+            </li>
+      </ul>
         
-          <li>
-            <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-          </li>
-        </ul>
-        
-      <%else%>
-        <li class="nav-item"><%= link_to "Admin Panel",admins_path,class:"nav-link"%></li>
-        <li class="nav-item"><%= link_to "My Site", root_path,class:"nav-link"%></li>
-      <%end%>
   <% else -%>
-  <li class="nav-item"><%= link_to t(".sign_in"), sign_in_path,class:"nav-link" %></li>
-  <li class="nav-item"><%= link_to "Sign in with Google", "/auth/google_oauth2",class:"nav-link" %></li>
+      <li class="nav-item"><%= link_to t(".sign_in"), sign_in_path,class:"nav-link" %></li>
+      <li class="nav-item"><%= link_to "Sign in with Google", "/auth/google_oauth2",class:"nav-link" %></li>
   <%end%>
 
   </div>

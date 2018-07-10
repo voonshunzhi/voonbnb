@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_09_090742) do
+ActiveRecord::Schema.define(version: 2018_07_10_015719) do
 
   create_table "authentications", force: :cascade do |t|
     t.string "uid"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 2018_07_09_090742) do
     t.string "amenities"
     t.index ["sort_id"], name: "index_listings_on_sort_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.date "check_in_date"
+    t.date "check_out_date"
+    t.integer "payment_status"
+    t.integer "user_id"
+    t.integer "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sorts", force: :cascade do |t|

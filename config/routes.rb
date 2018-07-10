@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :admins,only: [:index,:destroy,:update]
   resources :airbnbs,only: [:index,:show]
   resources :users,only: [:edit,:update,:show]
+  resources :reservations , except:[:update,:edit,:index]
 
   get     "airbnbs/user/:id"         => "airbnbs#user_airbnbs",as: :user_airbnbs
   get     "profile"                  => "users#profile", as: :profile_page

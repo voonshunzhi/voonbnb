@@ -19,11 +19,14 @@
 		</div>
 		<div class="well col-lg-4 col-xs-12">
 			<div><strong>RM <%=@airbnb.price_per_night.to_s[0..-3]%></strong><small> per night</small></div>
-			<div>Check-in date</div>
-			<input type="date" name="check-in-date">
-			<div>Checkout-out date</div>
-			<input type="date" name="check-out-date">
-			<div><button class="btn btn-primary">Book!</button></div>
+			<%= form_for @reservation,url:reservations_path do |form|%>
+				<div>Check-in date : </div>
+				<%= form.date_field :check_in_date%>
+				<input type="hidden" value="<%=@airbnb.id%>">
+				<div>Checkout-out date : </div>
+				<%= form.date_field :check_out_date%>
+				<div class="padding-top"><%= form.submit "BOOK!",class:"btn btn-primary"%></div>
+			<%end%>
 		</div>
 		<div class="well col-lg-12 col-xs-12">
 			<div>Amenities available :</div>

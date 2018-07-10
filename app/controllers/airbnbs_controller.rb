@@ -5,6 +5,7 @@ class AirbnbsController < ApplicationController
 	end
 	def show
 		@airbnb = Listing.find(params[:id])
+		@reservation = Reservation.new
 	end
 
 	def user_airbnbs
