@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_10_015719) do
+ActiveRecord::Schema.define(version: 2018_07_10_075831) do
 
   create_table "authentications", force: :cascade do |t|
     t.string "uid"
@@ -49,11 +49,13 @@ ActiveRecord::Schema.define(version: 2018_07_10_015719) do
   create_table "reservations", force: :cascade do |t|
     t.date "check_in_date"
     t.date "check_out_date"
-    t.integer "payment_status"
+    t.integer "payment_status", default: 0
     t.integer "user_id"
     t.integer "listing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "total_price"
+    t.integer "days"
   end
 
   create_table "sorts", force: :cascade do |t|

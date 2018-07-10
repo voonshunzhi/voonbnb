@@ -17,11 +17,15 @@ Rails.application.routes.draw do
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
   end
-  resources :listings
+
   resources :admins,only: [:index,:destroy,:update]
-  resources :airbnbs,only: [:index,:show]
+  resources :listings
   resources :users,only: [:edit,:update,:show]
-  resources :reservations , except:[:update,:edit,:index]
+  resources :airbnbs
+  resources :reservations ,only:[:index]
+  resources :airbnbs do
+    resources :reservations,only: [:create]
+  end
 
   get     "airbnbs/user/:id"         => "airbnbs#user_airbnbs",as: :user_airbnbs
   get     "profile"                  => "users#profile", as: :profile_page

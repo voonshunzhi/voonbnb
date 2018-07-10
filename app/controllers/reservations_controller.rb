@@ -1,14 +1,24 @@
 class ReservationsController < ApplicationController
-	# def create
-	# 	reservation = Reservation.new(reserve_params)
-	# 	reservation.user = current_user
-	# 	reservation.listing = params[:id]
-	# 	reservation.save
-	# 	flash[:success] = "Your booking is successful."
-	# 	redirect_to 
-	# end
+	
+	def index
+		@reservations = current_user.reservations
+	end
+	
+	def show
+	end
+
 	def create
-		render "airbnbs/show"
+		@reservation = Reservation.new(reserve_params)
+		@reservation.user = current_user
+		@reservation.listing_id = params[:airbnb_id]
+		
+		if @reservation.save
+			flash[:success] = "You have successfully reserved the Airbnb."
+			redirect_to reservations_path
+		else
+			flash[:danger] = "Please choose your check-in and check-out date!"
+			redirect_to airbnb_path(@reservation.listing)
+		end
 	end
 
 	private
