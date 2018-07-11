@@ -26,7 +26,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if current_user.role != "admin"%>
             <li class="nav-item"><%= link_to "Become A Host", new_listing_path,class:"nav-link"%></li>
-            <li class="nav-item"><%= link_to "View My Listing",listings_path,class:"nav-link"%></li>
+            <li class="nav-item"><%= link_to "My Listing",listings_path,class:"nav-link"%></li>
             <li class="nav-item"><%= link_to "Profile", profile_page_path,class:"nav-link"%></li>
           <%else%>
             <li class="nav-item"><%= link_to "Admin Panel",admins_path,class:"nav-link"%></li>

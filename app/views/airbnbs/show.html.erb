@@ -47,6 +47,9 @@
 	</div>
 </div>
 
+
+
+<!-- Javascript/Jquery -->
 <script type="text/javascript">
 	function formatDate(date) {
     var d = new Date(date),
@@ -64,7 +67,10 @@ $(document).ready(function(){
 	$.fn.datepicker.defaults.format = "yyyy-mm-dd";
     $('.datepicker').datepicker({
     	startDate:formatDate(new Date()),
-    	datesDisabled: <%=@range.inspect.html_safe%>
-    });
+    	datesDisabled: <%=@range.inspect.html_safe%>,
+    	autoclose:true
+    }).on("keydown",function(e){
+    	e.preventDefault();
+    })
   });
 </script>
