@@ -17,14 +17,14 @@ class ReservationsController < ApplicationController
 			@reservation.total_price = helpers.total_price(@reservation)
 			if @reservation.save
 				flash[:success] = "You have successfully reserved the Airbnb."
-				redirect_back
+				redirect_to reservations_path
 			else
 				flash[:danger] = "Please choose your check-in and check-out date!"
-				redirect_back
+				redirect_to airbnb_path(@reservation.listing)
 			end
 		else
 			flash[:danger] = "Please select a valid check-in-date and check-out-date!"
-			redirect_back
+			redirect_to airbnb_path(@reservation.listing)
 		end
 		
 	end

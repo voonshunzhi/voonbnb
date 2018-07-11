@@ -31,6 +31,14 @@ class ListingsController < ApplicationController
 		flash[:success] = "Your Airbnb is successfully updated."
 		redirect_to listings_path
 	end
+
+	def income
+		@listings = current_user.listings
+		@listing_ids = @listings.collect {|listing| listing.id}
+		@objects = Reservation.where(listing_id:@listing_ids)
+		@income = @objects.sum(:total_price)
+	end
+
 	private
 	def find_listing
 		@listing = Listing.find(params[:id])

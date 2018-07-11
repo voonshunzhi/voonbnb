@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :reservations,only: [:create]
   end
 
+  get     "income"                   => "listings#income"
   get     "airbnbs/user/:id"         => "airbnbs#user_airbnbs",as: :user_airbnbs
   get     "profile"                  => "users#profile", as: :profile_page
   get     "/sign_in"                  => "clearance/sessions#new", as: "sign_in"

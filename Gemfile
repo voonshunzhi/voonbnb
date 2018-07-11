@@ -42,6 +42,7 @@ gem 'shotgun'
 gem 'will_paginate'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'braintree'
 #Use gem jqeury for ajax
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
