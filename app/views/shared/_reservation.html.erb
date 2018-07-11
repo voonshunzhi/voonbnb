@@ -9,7 +9,6 @@
             <th>Days</th>
             <th>Total Price(RM)</th>
             <th>Payment status</th>
-            <th>Pay now</th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +21,6 @@
                 <th><%=reservation.listing.price_per_night.to_s[0..-3]%></th>
                 <th><%=reservation.days%></th>
                 <th><%=reservation.total_price.to_s[0..-3]%></th>
-	    		<th><%=reservation.payment_status%></th>
 	    		<th>Paid</th>
             </tr>
 	    	<%end%>

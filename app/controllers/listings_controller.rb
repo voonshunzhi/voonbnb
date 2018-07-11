@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
 	before_action :find_listing, only: [:edit,:destroy]
 
 	def index
-		@listings = current_user.listings
+		@listings = current_user.listings.paginate(page:params[:page],per_page:6)
 	end
 	def new
 		@listing = Listing.new

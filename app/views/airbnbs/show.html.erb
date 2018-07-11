@@ -22,10 +22,11 @@
 
 
 
-			<%= form_for @reservation,url:airbnb_reservations_path(@airbnb),html:{class:"padding-top"} do |form|%>
+			<%= form_for @reservation,url:new_transaction_path,html:{class:"padding-top"} do |form|%>
 			<div class="form-group">
 				<div>Check-in date : </div>
 				<%= form.text_field :check_in_date,class:'datepicker stretch-full-width form-control',id:"check-in"%>
+				<%= form.hidden_field :listing_id,value:@airbnb.id%>
 			</div>	
 			<div class="form-group">
 				<div>Checkout-out date : </div>

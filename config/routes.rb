@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'transactions/new'
   #As we sign in, the default page is pages#indec
   constraints Clearance::Constraints::SignedIn.new do
     root to: 'airbnbs#index', as: :signed_in_root
@@ -23,10 +24,14 @@ Rails.application.routes.draw do
   resources :users,only: [:edit,:update,:show]
   resources :airbnbs
   resources :reservations ,only:[:index]
+
+  
   resources :airbnbs do
     resources :reservations,only: [:create]
   end
 
+  post    'transactions/new'        => "transactions#new",as: :new_transaction
+  post    'transactions/checkout'   => "transactions#checkout",as: :transactions_checkout
   get     "income"                   => "listings#income"
   get     "airbnbs/user/:id"         => "airbnbs#user_airbnbs",as: :user_airbnbs
   get     "profile"                  => "users#profile", as: :profile_page
