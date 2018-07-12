@@ -1,0 +1,6 @@
+<h1>Here is your booking confirmation : </h1>
+<h3>Your airbnb's name : <%= @reservation.listing.name %></h3>
+<h4>Price Per night : <%= @reservation.listing.price_per_night%></h4>
+<h4>You have booked for : <%= pluralize(@reservation.days,"day")%></h4>
+<h4>Total is : <%= @reservation.total_price.to_s[0..-3]%></h4>
+<div>Thanks for doing business with airbnb!</div>

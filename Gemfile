@@ -44,6 +44,7 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'braintree'
 gem 'gon', '~> 5.1.2'
+gem 'sidekiq'
 #Use gem jqeury for ajax
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

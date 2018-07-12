@@ -1,0 +1,10 @@
+<div align="center">
+	<p><%= image_tag @user.image.url,class:"img-md"%></p>
+	<h1>Welcome to example.com, <%= @user.username %></h1>
+	  <p>
+	    You have successfully signed up to example.com,
+	    your username is: <%= @user.username %>.<br>
+	  </p>
+	<p>Thanks for joining and have a great day!</p>
+	<p>Clcik on this link to go <%= link_to Airbnb,root url%></p>
+</div>

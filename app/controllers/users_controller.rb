@@ -10,6 +10,7 @@ class UsersController < Clearance::UsersController
 	      user.email = email
 	      user.password = password
 	      user.username = username
+	      UserMailer.welcome_email(user).deliver_now
 	    end
 	end
 
