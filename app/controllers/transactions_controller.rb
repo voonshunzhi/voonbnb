@@ -28,7 +28,7 @@ class TransactionsController < ApplicationController
 	  	@reservation = Reservation.new(check_out_date:params[:checkout_form][:out],check_in_date:params[:checkout_form][:in],listing_id:params[:checkout_form][:list],user_id:params[:checkout_form][:user],
 	  		total_price:@price,days:params[:checkout_form][:days])
 	  	@reservation.save
-	  	UserMailer.booking_confirmation(@reservation).deliver_now
+	  	UserMailer.booking_confirmation(@reservation).deliver_later
 	    redirect_to :root, :flash => { :success => "Transaction successful!" }
 	  else
 	    redirect_to :root, :flash => { :danger => "Transaction failed. Please try again." }

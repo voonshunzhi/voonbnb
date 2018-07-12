@@ -1,6 +1,6 @@
 class ApplicationJob < ActiveJob::Base
 	queue_as :default
 
-	def perform(*args)
+	def perform()
 	end
 end
