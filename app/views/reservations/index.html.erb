@@ -1,3 +1,5 @@
 <h1>My Reservation</h1>
 
 <%= render "shared/reservation",obj:@reservations%>
+
+<%= will_paginate @reservations %>

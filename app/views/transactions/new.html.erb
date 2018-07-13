@@ -6,20 +6,26 @@
 
 
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-sm-6">
       <div class="well padding-top" align="center">
-          <div><%= image_tag @reservation.listing.image[0].url,class:"img-sm"%></div>
-          <div>Name of airbnb : <%= @reservation.listing.name%></div>
-          <div>Price per night : RM <%= @reservation.listing.price_per_night.to_s[0..-3]%></div>
-          <div>Number of days : <%= @reservation.days%> days</div>
-          <div>Total price :<strong> RM <%= @reservation.total_price.to_s[0..-3]%></strong></div>
-          
+        <div class="card text-white bg-dark mb-3" style="width: 21rem;">
+          <div class="card-header">You booking : </div>
+            <div class="card-body check-out-card">
+                    <div class="card-text"><%= image_tag @reservation.listing.image[0].url,class:"card-img-top"%></div>
+                    <div class="padding-top">
+                      <div class="card-text row"><div class="col-sm-6">Name of airbnb : </div> <div class="col-sm-6"><%= @reservation.listing.name%></div></div>
+                      <div class="card-text row"><div class="col-sm-6">Price per night :  </div><div class="col-sm-6">RM <%= @reservation.listing.price_per_night.to_s[0..-3]%></div></div>
+                      <div class="card-text row"><div class="col-sm-6">Number of days :  </div><div class="col-sm-6"><%= @reservation.days%> days</div></div>
+                      <div class="card-text row"><div class="col-sm-6">Total price : </div><div class="col-sm-6"><strong> RM <%= @reservation.total_price.to_s[0..-3]%></strong></div></div>
+                    </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
 
   <div class="demo-frame col-lg-6">
     <h3>Pay Now : </h3>
-  <%= form_for :checkout_form, url: transactions_checkout_path(reservation_details:"test"), html: { id: "cardForm"} do |form| %>
+    <%= form_for :checkout_form, url: transactions_checkout_path(reservation_details:"test"), html: { id: "cardForm"} do |form| %>
 
       <%= form.hidden_field :price,value:@reservation.total_price%>
       <%= form.hidden_field :in,value:@reservation.check_in_date%>
@@ -40,11 +46,13 @@
       <%= form.hidden_field "payment_method_nonce" %>
 
       <div class="button-container">
-        <%= form.submit "Purchase", disabled: true, class: "btn btn-primary", id: "submit-payment-btn" %>
+        <%= form.submit "Pay Now!", disabled: true, class: "btn btn-primary", id: "submit-payment-btn" %>
       </div>
     <% end %>
   </div>
+
 </div>
+
 
 
 <script type="text/javascript">

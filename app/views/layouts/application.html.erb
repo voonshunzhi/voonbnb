@@ -44,12 +44,11 @@
             <li class="nav-item"><%= link_to "My Site", root_path,class:"nav-link"%></li>
         <%end%>
             <li>
-              <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+              <%= button_to t(".sign_out"), sign_out_path, method: :delete,class:"btn btn-primary" %>
             </li>
       </ul>
         
   <% else -%>
-      <li class="nav-item"><%= link_to t(".sign_in"), sign_in_path,class:"nav-link" %></li>
       <li class="nav-item"><%= link_to "Sign in with Google", "/auth/google_oauth2",class:"nav-link" %></li>
   <%end%>
 
@@ -58,19 +57,24 @@
   
 </div>
 
-<div id="flash">
-  <% flash.each do |key, value| -%>
-    <div id="flash_<%= key %>" class="alert alert-<%=key%> alert-dismissible fade show"><%=value %></div>
-  <% end %>
-</div>
-<% if (controller.controller_name == "airbnbs" && controller.action_name == "show") || controller.controller_name == "admins"|| controller.controller_name == "listings"%>
-    <%= yield %>
-<%else%>
-  <div class="container">
-    <%= yield %>
+  <div id="flash">
+    <% flash.each do |key, value| -%>
+      <div id="flash_<%= key %>" class="alert alert-<%=key%> alert-dismissible fade show"><%=value %></div>
+    <% end %>
   </div>
-<%end%>
-  
-  <%= debug(params) if Rails.env.development?%>
+  <% if (controller.controller_name == "airbnbs" && controller.action_name == "show") || controller.controller_name == "admins"|| controller.controller_name == "listings"%>
+      <%= yield %>
+  <%else%>
+    <div class="container">
+      <%= yield %>
+    </div>
+  <%end%>
+
+<footer class="row footer">
+    <div class="col-sm-4 offset-sm-5">
+       <p class="footer-text">&copy Made by Voon @ voon@gmail.com</p>
+    </div>
+</footer>
+
 </body>
 </html>

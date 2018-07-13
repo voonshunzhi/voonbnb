@@ -35,8 +35,9 @@ class ListingsController < ApplicationController
 	def income
 		@listings = current_user.listings
 		@listing_ids = @listings.collect {|listing| listing.id}
-		@objects = Reservation.where(listing_id:@listing_ids)
-		@income = @objects.sum(:total_price)
+		@objectss = Reservation.where(listing_id:@listing_ids)
+		@objects = Reservation.where(listing_id:@listing_ids).paginate(page:params[:page],per_page:5)
+		@income = @objectss.sum(:total_price)
 	end
 
 	private

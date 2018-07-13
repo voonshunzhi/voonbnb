@@ -18,5 +18,3 @@
 //= require bootstrap-datepicker
 //Date formatter in rails
 
-
-

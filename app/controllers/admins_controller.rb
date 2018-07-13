@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
 	before_action :find_listing,only:[:update,:destroy]
 
 	def index
-		@listings = Listing.all
+		@listings = Listing.paginate(page:params[:page],per_page:10)
 	end
 	def update
 		@listing.update(status:"approved")

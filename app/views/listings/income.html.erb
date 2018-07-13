@@ -2,5 +2,7 @@
 
 	<%= render "shared/reservation",obj:@objects%>
 
+	<%= will_paginate @objects,class:"apple_pagination"%>
+
 	<div align="center"><h3><%= "Total Income : RM " + @income.to_s[0..-3] %></h3></div>
 </div>

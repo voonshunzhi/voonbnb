@@ -7,6 +7,12 @@
 @import "images";
 @import "listings";
 @import "transactions";
+.push-down{
+  top:100px;
+}
+.check-out-card{
+  padding-left:1.25rem;
+}
 .cropped{
   height:300px;
   overflow:hidden;
@@ -35,4 +41,49 @@
 .bolded{
 	font-weight:bold;
 	font-size:1.7em;
+}
+body,html{
+  width:100%;
+  height:100%;
+}
+.relative{
+  position:relative;
+}
+.inside{
+  position:absolute;
+  z-index:1000;
+  bottom:15%;
+  left:15px;
+}
+.footer{
+  background:#f8f9fa;
+  margin-top:20px;
+}
+.footer-text{
+  font-size:0.8em;
+  font-weight:100;
+}
+.index-front{
+  z-index:10;
+}
+.overlay{
+  width:100%;
+  height:100%;
+  position: absolute;
+  z-index:2;
+  top:0;
+  left:0;
+  background-color:rgba(255,255,255,0.45)
+}
+.overlay-text{
+  padding-top:5%;
+  padding-left:5%;
+  padding-right:10%;
+}
+.jumbotron{
+  height:400px;
+  position:relative;
+  background-image:url(bookcase.jpg);
+  background-position:center;
+  color:black;
 }

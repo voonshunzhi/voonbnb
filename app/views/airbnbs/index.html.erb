@@ -1,4 +1,14 @@
-<div><%= image_tag "airbnb_home.jpg",class: " stretch-full-width rounded-corner cropped"%></div>
+
+<div class="jumbotron">
+  <div class="overlay">
+  	<div class="overlay-text">
+	  	<h1 class="display-4">Welcome,It's Airbnb!</h1>
+	  <p class="lead">A new selection of homes verified for quality & comfort</p>
+	  <hr class="my-4">
+  </div>
+  </div>
+</div>
+
 <h3 class="padding-top"><strong>Homes around the world </strong></h3>
 <div class="row">
 	<%@listings.each do |listing|%>
