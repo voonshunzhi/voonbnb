@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
 		@listing = Listing.new
 	end
 	def create
+		byebug
 		@listing = Listing.new(listing_param)
 		@listing.user = current_user
 		@listing.save 
@@ -47,6 +48,6 @@ class ListingsController < ApplicationController
 	def listing_param
 		params.require(:listing).permit(:name, 
 			:num_of_beds, :price_per_night,:num_of_bath,:num_of_rooms,:country,:state,:city,:resident,:poscode,:street,
-			:house_number,:sort_id,{image: []},{amenities: []})
+			:house_number,:sort_id,{image: []},amenities: [])
 	end
 end
