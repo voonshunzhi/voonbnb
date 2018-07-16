@@ -10,7 +10,6 @@
 <div id="header" class="padding-bottom">
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
   <%= link_to "Airbnb", root_path,class:"navbar-brand bolded"%>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,11 +18,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
       <%if signed_in?%>
-      
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          
+
+          <%=form_tag search_for_place_path,method: :get,class:"form-inline my-2 my-lg-0" do %>
+            <%= text_field_tag :place,params[:place],placeholder:"Malaysia....",class:"form-control mr-sm-2",id:"search-input",list:"results",:autocomplete => :off,style:"width:350px;"%>
+            <%= button_tag "Search",class:"btn btn-outline-success my-2 my-sm-0",id:"search-button"%>
+          <%end%>
+          
+
+
+
       </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user.role != "admin"%>
@@ -53,10 +57,10 @@
       <li class="nav-item"><%= link_to "Sign in with Google", "/auth/google_oauth2",class:"nav-link" %></li>
   <%end%>
 
-  </div>
+
   </div>
 </nav>
-  
+  <datalist id="results" style="z-index:10000;position:fixed"></datalist>
 </div>
 
   <div id="flash">
@@ -77,6 +81,29 @@
        <p class="footer-text">&copy Made by Voon @ voon@gmail.com</p>
     </div>
 </footer>
+<script>
+                $('#search-input').on('input',function(){
+                  let i = 0;
+                  let input = $(this).val();
+                  let result = "";
+                  let seen = []
+                  $.get('/ajax/search',{airbnb:input},function(data){
+                     while(i < data.length){
+                        if(seen.indexOf(data[i]['state']) == -1){
+                        result += `<option value="${data[i]['city']} , ${data[i]['state']} , ${data[i]['country']}">`
+                          seen.push(data[i]['state'])
+                        
+                      }
+                        i+=1
+                     }
+                     $('#results').html(result)
+
+                  }).fail(function(jqxhr){
+                    console.log("fail")
+                  })
+                })
+                </script>
+
 
 </body>
 </html>

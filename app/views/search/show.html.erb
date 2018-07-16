@@ -1,0 +1,12 @@
+<div class="row">
+	<%if !@searches.empty?%>
+		<%= render @searches%>
+	<%else%>
+		<%= content_tag "h3","No result found!Some suggestions: ",class:"padding-bottom"%>
+
+		<div class="row">
+			<%= render @listings %>
+		</div>
+	<%end%>
+</div>
+<%= will_paginate @searches,class:"apple_pagination" %>

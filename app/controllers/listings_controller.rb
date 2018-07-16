@@ -9,7 +9,6 @@ class ListingsController < ApplicationController
 		@listing = Listing.new
 	end
 	def create
-		byebug
 		@listing = Listing.new(listing_param)
 		@listing.user = current_user
 		@listing.save 

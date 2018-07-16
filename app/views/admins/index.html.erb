@@ -1,1 +1,40 @@
-<%= render "shared/table"%>
+<table class="table table-hover col-lg-12">
+	<thead>
+	<tr>
+		<th scope="col">UserID : </th>
+		<th scope="col">AirBnb's name</th>
+		<th scope="col">Price</th>
+		<th scope="col">Bed-room</th>
+		<th scope="col">Beds</th>
+		<th scope="col">Bath-room</th>
+		<th scope="col">Amenitiy</th>
+		<th scope="col">House No.</th>
+		<th scope="col">Street</th>
+		<th scope="col">Resident</th>
+		<th scope="col">City</th>
+		<th scope="col">Poscode</th>
+		<th scope="col">State</th>
+		<th scope="col">Country</th>
+		<th scope="col">Type</th>
+		<th scope="col">Image</th>
+		<th scope="col">Status</th>
+		<%if current_user.role == 'admin'%>
+			<th scope="col">Approve</th>
+			<th scope="col">Delete</th>
+		<%else%>
+			<th scope="col">Edit</th>
+			<th scope="col">Delete</th>
+		<%end%>
+	</tr>
+	</thead>
+
+	<tbody>
+		
+		<%= render partial:"adminlisting",collection:@listings,as: :listing%>
+		
+	</tbody>
+
+</table>
+	<%=will_paginate @listings,class:"apple_pagination"%>
+
+

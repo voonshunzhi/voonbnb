@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'search/airbnb'
   get 'transactions/new'
   #As we sign in, the default page is pages#indec
   constraints Clearance::Constraints::SignedIn.new do
@@ -39,5 +40,6 @@ Rails.application.routes.draw do
   delete  "/sign_out"                 => "clearance/sessions#destroy", as: "sign_out"
   get     "/sign_up"                  => "clearance/users#new", as: "sign_up"
   get     "/auth/:provider/callback"  => "sessions#create_from_omniauth"
-
+  get     "search"             => "search#show",as: :search_for_place  
+  get      "ajax/search"        =>  "search#airbnb"
 end
