@@ -28,8 +28,9 @@ class ListingsController < ApplicationController
 	def update
 		@listing = Listing.find(params[:id])
 		@listing.update(listing_param)
-		flash[:success] = "Your Airbnb is successfully updated."
-		redirect_to listings_path
+		@listings = current_user.listings.paginate(page:params[:page],per_page:6)
+		flash.now[:success] = "Your Airbnb is successfully updated."
+		render "listings/index"
 	end
 
 	def income
