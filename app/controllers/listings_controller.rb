@@ -20,9 +20,11 @@ class ListingsController < ApplicationController
 	end
 
 	def destroy
+		@id = @listing.id
 		@listing.delete
-		flash[:success] = "Your Airbnb is successfully deleted."
-		redirect_to listings_path
+		respond_to do |format|
+			format.js { render "admins/destroy"}
+		end
 	end
 
 	def update

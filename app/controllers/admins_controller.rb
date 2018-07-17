@@ -13,8 +13,11 @@ class AdminsController < ApplicationController
 	end
 
 	def destroy
+		@id = @listing.id
 		@listing.delete
-		redirect_to admins_path
+		respond_to do |format|
+			format.js 
+		end
 	end
 
 	private

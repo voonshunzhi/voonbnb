@@ -1,7 +1,9 @@
 class SearchController < ApplicationController
   def airbnb
   	@searches = Listing.search(params[:airbnb]).limit(10)
-  	render json:@searches
+  	respond_to do |format|
+      format.json { render json:@searches}
+    end
   end
   def show
   	if params[:place].present?

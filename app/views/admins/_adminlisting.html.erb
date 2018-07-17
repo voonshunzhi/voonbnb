@@ -20,10 +20,10 @@
 			<td><%= link_to "Approve",admin_path(listing),method: :put,remote:true%></td>
 			<td><%= link_to 'Delete', admin_path(listing), 
                          method: :delete, 
-                         data: { confirm: 'Are you sure?' } %> </td>
+                         data: { confirm: 'Are you sure?' },remote:true%> </td>
             <%else%>
             <td><%= link_to "Edit",edit_listing_path(listing)%></td>
-			<td><%= link_to 'Delete', listing_path(listing),method: :delete,remote:true,
-			data: { confirm: 'Are you sure?' }%> </td>
+			<td><%= link_to 'Delete', listing_path(listing),method: :delete,
+			data: { confirm: 'Are you sure?' },remote:true%> </td>
             <%end%>
 </tr>
