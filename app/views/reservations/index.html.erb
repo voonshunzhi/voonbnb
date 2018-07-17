@@ -1,5 +1,7 @@
 <h1>My Reservation</h1>
-
-<%= render "shared/reservation",obj:@reservations%>
-
+<% if @reservations.length > 0 %>
+	<%= render "shared/reservation",obj:@reservations%>
+<%else%>
+	<%= content_tag 'h3',"No Reservation is found!"%>
+<%end%>
 <%= will_paginate @reservations %>

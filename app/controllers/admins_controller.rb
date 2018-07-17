@@ -7,12 +7,13 @@ class AdminsController < ApplicationController
 	end
 	def update
 		@listing.update(status:"approved")
-		flash[:success] = "The Airbnb is approved."
-		redirect_to admins_path
+		respond_to do |format|
+			format.js 
+		end
 	end
+
 	def destroy
 		@listing.delete
-		flash[:success] = "The Airbnb is deleted."
 		redirect_to admins_path
 	end
 

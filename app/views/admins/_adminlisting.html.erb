@@ -1,4 +1,4 @@
-<tr>
+<tr id="<%=listing.id%>">
 			<td><%= listing.user_id%></td>
 			<td><%= listing.name%></td>
 			<td><%= listing.price_per_night.to_s[0..-3]%></td>
@@ -15,16 +15,15 @@
 			<td><%= listing.country%></td>
 			<td><%= listing.sort.sort%></td>
 			<td><%= image_tag listing.image[0].url,class:"img-sm"%></td>
-			<td><%= listing.status%></td>
+			<td id="status-of-<%=listing.id%>"><%= listing.status%></td>
 			<% if current_user.role == "admin"%>
-			<td><%= link_to "Approve",admin_path(listing),method: :put%></td>
+			<td><%= link_to "Approve",admin_path(listing),method: :put,remote:true%></td>
 			<td><%= link_to 'Delete', admin_path(listing), 
                          method: :delete, 
                          data: { confirm: 'Are you sure?' } %> </td>
             <%else%>
             <td><%= link_to "Edit",edit_listing_path(listing)%></td>
-			<td><%= link_to 'Delete', listing_path(listing), 
-                         method: :delete, 
-                         data: { confirm: 'Are you sure?' } %> </td>
+			<td><%= link_to 'Delete', listing_path(listing),method: :delete,remote:true,
+			data: { confirm: 'Are you sure?' }%> </td>
             <%end%>
 </tr>

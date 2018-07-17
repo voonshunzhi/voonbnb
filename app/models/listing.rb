@@ -5,5 +5,6 @@ class Listing < ApplicationRecord
                    }
 	belongs_to :sort
 	belongs_to :user
+	has_many :reservations,dependent: :destroy
 	mount_uploaders :image, ImageUploader
 end
