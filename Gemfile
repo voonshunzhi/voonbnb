@@ -46,8 +46,6 @@ gem 'braintree'
 gem 'gon', '~> 5.1.2'
 gem 'sidekiq'
 gem 'pg_search'
-gem 'foreman'
-gem 'rails_12factor'
 #Use gem jqeury for ajax
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
