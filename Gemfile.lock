@@ -47,11 +47,11 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (8.6.5)
+    autoprefixer-rails (9.0.0)
       execjs
     bcrypt (3.1.12)
     bindex (0.5.0)
-    bootsnap (1.3.0)
+    bootsnap (1.3.1)
       msgpack (~> 1.0)
     bootstrap (4.0.0)
       autoprefixer-rails (>= 6.0.3)
@@ -93,7 +93,6 @@ GEM
     concurrent-ruby (1.0.5)
     connection_pool (2.2.2)
     crass (1.0.4)
-    dotenv (0.7.0)
     email_validator (1.6.0)
       activemodel
     erubi (1.7.1)
@@ -120,9 +119,6 @@ GEM
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
-    foreman (0.64.0)
-      dotenv (~> 0.7.0)
-      thor (>= 0.13.6)
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -195,7 +191,7 @@ GEM
       arel (>= 6)
     popper_js (1.12.9)
     public_suffix (3.0.2)
-    puma (3.11.4)
+    puma (3.12.0)
     rack (2.0.5)
     rack-protection (2.0.3)
       rack
@@ -219,11 +215,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails_12factor (0.0.3)
-      rails_serve_static_assets
-      rails_stdout_logging
-    rails_serve_static_assets (0.0.5)
-    rails_stdout_logging (0.0.5)
     railties (5.2.0)
       actionpack (= 5.2.0)
       activesupport (= 5.2.0)
@@ -280,7 +271,7 @@ GEM
     turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.14)
+    uglifier (4.1.15)
       execjs (>= 0.3.0, < 3)
     web-console (3.6.2)
       actionview (>= 5.0)
@@ -310,7 +301,6 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   figaro
   fog-aws
-  foreman
   gon (~> 5.1.2)
   jbuilder (~> 2.5)
   jquery-rails
@@ -321,7 +311,6 @@ DEPENDENCIES
   pg_search
   puma (~> 3.11)
   rails (~> 5.2.0)
-  rails_12factor
   sass-rails (~> 5.0)
   selenium-webdriver
   shotgun
