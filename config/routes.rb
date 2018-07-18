@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root to: 'airbnbs#index', as: :signed_in_root
   get 'search/airbnb'
   get 'transactions/new'
   #As we sign in, the default page is pages#indec
