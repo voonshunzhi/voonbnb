@@ -68,7 +68,7 @@
       <div id="flash_<%= key %>" class="alert alert-<%=key%> alert-dismissible fade show"><%=value %></div>
     <% end %>
   </div>
-  <% if (controller.controller_name == "airbnbs" && controller.action_name == "show") || controller.controller_name == "admins"|| controller.controller_name == "listings"%>
+  <% if (params[:controller] == "airbnbs" && params[:action] == "show") || params[:controller] == "admins"|| params[:controller] == "listings"%>
       <%= yield %>
   <%else%>
     <div class="container">
