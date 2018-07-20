@@ -43,10 +43,9 @@ gem 'will_paginate'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'braintree'
-gem 'gon', '~> 5.1.2'
 gem 'sidekiq'
 gem 'pg_search'
-gem 'rails_12factor'
+# gem 'rails_12factor'
 #Use gem jqeury for ajax
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

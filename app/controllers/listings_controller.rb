@@ -5,15 +5,21 @@ class ListingsController < ApplicationController
 	def index
 		@listings = current_user.listings.paginate(page:params[:page],per_page:6)
 	end
+	
 	def new
 		@listing = Listing.new
 	end
+
 	def create
 		@listing = Listing.new(listing_param)
 		@listing.user = current_user
-		@listing.save 
-		flash[:success] = "Your Airbnb is successfully listed."
-		redirect_to listings_path
+		if @listing.save 
+			flash[:success] = "Your Airbnb is successfully listed."
+			redirect_to listings_path
+		else
+			flash[:danger] = "There are errors preventing the airbnb from being saved."
+			redirect_to listings_path
+		end
 	end
 
 	def edit
