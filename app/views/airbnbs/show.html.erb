@@ -39,12 +39,16 @@
 					<label><%= link_to host_name,user_path(@airbnb.user)%></label>
 				</div>
 			</div>
-			
+			<div class="col-sm-12"> <%= image_tag 'bedroom.png' %> rooms <%=@airbnb.num_of_rooms%> <%= image_tag 'bed.png' %> beds <%=@airbnb.num_of_beds%>  <%= image_tag 'bathtub.png'%> bathroom <%=@airbnb.num_of_bath%>
+			</div>
+
 			<div class="well col-sm-12 padding-top">
 			<div>Amenities available :</div>
-			<%@airbnb.amenities.each do |amenity|%>
-				<div><%= display_amenity_icon(amenity)%> <%=amenity.titlecase%></div>
-			<%end%>
+			<% if @airbnb.amenities.any? %>
+				<%@airbnb.amenities.each do |amenity|%>
+					<div><%= display_amenity_icon(amenity)%> <%=amenity.titlecase%></div>
+				<%end%>
+			<% end %>
 		</div>
 		</div>
 		<div class="well col-lg-4 col-xs-12">
