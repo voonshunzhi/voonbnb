@@ -6,6 +6,6 @@ CarrierWave.configure do |config|
     aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
     region:'ap-southeast-1'
   }
-  config.fog_directory  = ''
+  config.fog_directory  = 'voonbnb'
   config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" }
 end
