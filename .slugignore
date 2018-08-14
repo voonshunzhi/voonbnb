@@ -1,1 +1,2 @@
-/public/uploads/*
+/public/uploads/*/*.jpg
+/public/uploads/*/*.png
