@@ -1,2 +1,4 @@
-/public/uploads/*/*.jpg
-/public/uploads/*/*.png
+/public/uploads/listing/image/*/*.jpg
+/public/uploads/listing/image/*/*.png
+/public/uploads/user/image/*/*.jpg
+/public/uploads/user/image/*/*.png
