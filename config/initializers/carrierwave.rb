@@ -1,21 +1,11 @@
-require 'carrierwave/storage/abstract'
-require 'carrierwave/storage/file'
-require 'carrierwave/storage/fog'
-
 CarrierWave.configure do |config|
-  if Rails.env.staging? || Rails.env.production?
-    config.fog_provider = 'fog/aws'
-    config.fog_credentials = {
-      :provider => 'AWS',
-      :aws_access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
-      :region => 'ap-northeast-1' # Tokyo
-    }
-
-    config.fog_directory = ENV['S3_BUCKET_NAME']
-    config.storage = :fog
-  else
-    config.storage = :file
-    config.enable_processing = Rails.env.development?
-  end
+  config.fog_provider = "fog/aws"
+  config.fog_credentials = {
+    provider:           'AWS',
+    aws_access_key_id:     ENV["AWS_ACCESS_KEY_ID"],
+    aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
+    region:'ap-southeast-1'
+  }
+  config.fog_directory  = ''
+  config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" }
 end
