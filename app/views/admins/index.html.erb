@@ -29,8 +29,11 @@
 	</thead>
 
 	<tbody>
-		
-		<%= render partial:"adminlisting",collection:@listings,as: :listing%>
+		<% if @listings.size > 0%>
+			<%= render partial:"adminlisting",collection:@listings,as: :listing%>
+		<% else %>
+			<h3>No listing at the moment.</h3>
+		<% end %>
 		
 	</tbody>
 
